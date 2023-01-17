@@ -7,6 +7,17 @@ public class ShowName {
 
         String userLastName = lastName.nextLine();
         System.out.println("Your lastname is: " + userLastName);
+        System.out.println("Fin du programme");
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        Main a = new Main();
+                        Main.main(null);
+                    }
+                },
+                2000
+        );
     }
 
 }

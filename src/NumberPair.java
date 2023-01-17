@@ -13,8 +13,28 @@ public class NumberPair {
 
         if (number % 2 == 0) {
             System.out.println(number + " est pair");
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            Main a = new Main();
+                            Main.main(null);
+                        }
+                    },
+                    2000
+            );
         } else {
             System.out.println(number + " est impair");
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            Main a = new Main();
+                            Main.main(null);
+                        }
+                    },
+                    2000
+            );
         }
     }
 }

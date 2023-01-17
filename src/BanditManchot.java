@@ -66,17 +66,25 @@ public class BanditManchot {
         System.out.println("Combien voulez-vous en ajouter ?");
         Scanner input2 = new Scanner(System.in);
         int payersoldchoose = input2.nextInt();
-        sold = sold + payersoldchoose;
-        mise();
+        if (payersoldchoose <= 0) {
+            System.out.println("Veuillez choisir une quantité valide");
+        } else {
+            sold = sold + payersoldchoose;
+            mise();
+        }
     }
 
     public static  void mise() {
         System.out.println("Combien voulez-vous miser ? (Votre solde actuelle est de : " + sold + ")");
         Scanner input3 = new Scanner(System.in);
         int playermise = input3.nextInt();
-        miseplayer = playermise;
-        System.out.println("Vous avez décider de miser : " + playermise);
-        game();
+        if (playermise < 0) {
+            System.out.println("Veuillez choisir une quantité valide");
+        } else {
+            miseplayer = playermise;
+            System.out.println("Vous avez décider de miser : " + playermise);
+            game();
+        }
     }
     public static void game() {
         System.out.println("- Pour commencer taper 1 \n" +
@@ -135,6 +143,16 @@ public class BanditManchot {
             System.out.println("Le jeux est terminé");
             sold = sold + miseplayer;
             System.out.println("Votre solde est maintenant à " + sold);
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            Main a = new Main();
+                            Main.main(null);
+                        }
+                    },
+                    2000
+            );
         }
     }
 }

@@ -28,6 +28,8 @@ public class Echiquier {
                 System.out.println(" # # # #");
             }
         }
+        Main a = new Main();
+        Main.main(null);
     }
 
     public static void creatingTable16(int e) {
@@ -38,6 +40,17 @@ public class Echiquier {
                 System.out.println(" # # # # # # # #");
             }
         }
+        System.out.println("Fin du programme");
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        Main a = new Main();
+                        Main.main(null);
+                    }
+                },
+                2000
+        );
     }
 
 }

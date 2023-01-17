@@ -12,6 +12,17 @@ public class ShowtableMult {
             int numbertotal = number * i;
             System.out.println(numbertotal);
         }
+        System.out.println("Fin du programme");
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        Main a = new Main();
+                        Main.main(null);
+                    }
+                },
+                2000
+        );
 
     }
 }
