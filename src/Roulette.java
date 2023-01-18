@@ -155,10 +155,7 @@ public class Roulette {
 
             System.out.println("Vous avez choisi de miser sur Pair \n");
 
-            Scanner input3 = new Scanner(System.in);
-            int playermise3 = input3.nextInt();
 
-            if (playermise3 == 1) {
 
                 System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
                 Scanner inputconf = new Scanner(System.in);
@@ -169,10 +166,7 @@ public class Roulette {
                 }else {
                     askingBet();
                 }
-                
-            } else {
-                askingBet();
-            }
+
 
         } else if (playermise == 3) {
 
@@ -196,12 +190,21 @@ public class Roulette {
 //            MANQUE
 
             System.out.println("Vous avez choisi de miser sur les munéro de 0 à 18 \n");
-            System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
 
             Scanner input5 = new Scanner(System.in);
             int playermise5 = input5.nextInt();
 
             if (playermise5 == 1) {
+
+                System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
+                Scanner inputconf = new Scanner(System.in);
+                int playerconf = inputconf.nextInt();
+
+                if (playerconf == 1) {
+
+                } else {
+                    askingBet();
+                }
 
             } else {
                 askingBet();
@@ -219,11 +222,37 @@ public class Roulette {
 
             if (playermise6 == 1) {
 
+                System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
+                Scanner inputconf = new Scanner(System.in);
+                int playerconf = inputconf.nextInt();
+
+                if (playerconf == 1) {
+
+                } else {
+                    askingBet();
+                }
+
             } else {
                 askingBet();
             }
 
         } else if (playermise == 6) {
+
+            // NUMERO SIMPLE
+
+            System.out.println("Vous avez choisi de miser sur les munéro de 19 à 36 \n");
+
+            Scanner input7 = new Scanner(System.in);
+            int playermise7 = input7.nextInt();
+
+            if (playermise7 < 1) {
+                System.out.println("Veuillez choisir un numéro valide \n");
+            } else if (playermise7 > 36) {
+                System.out.println("Veuillez choisir un numéro valide \n");
+            } else {
+
+            }
+
 
         } else {
             System.out.println("Veuillez entrer un numéro valide \n");
