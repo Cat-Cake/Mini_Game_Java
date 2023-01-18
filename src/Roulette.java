@@ -75,12 +75,19 @@ public class Roulette {
         System.out.println("Combien voulez-vous miser ? (Votre solde actuelle est de : " + sold + ")");
         Scanner input3 = new Scanner(System.in);
         int playermise = input3.nextInt();
+
+
         if (playermise < 0) {
             System.out.println("Veuillez choisir une quantité valide");
         } else {
-            miseplayer = playermise;
-            System.out.println("Vous avez décider de miser : " + playermise);
-            Game();
+            if (playermise > sold || sold == 0) {
+                System.out.println("Veuillez choisir une quantité valide");
+                chooseSoldeOrMise();
+            } else {
+                miseplayer = playermise;
+                System.out.println("Vous avez décider de miser : " + playermise);
+                Game();
+            }
         }
     }
 
@@ -126,7 +133,7 @@ public class Roulette {
                 int playerconf = inputconf.nextInt();
 
                 if (playerconf == 1) {
-
+                    colorGame();
                 }else {
                     askingBet();
                 }
@@ -139,7 +146,7 @@ public class Roulette {
                 int playerconf = inputconf.nextInt();
 
                 if (playerconf == 1) {
-
+                    colorGame();
                 }else {
                     askingBet();
                 }
@@ -162,7 +169,7 @@ public class Roulette {
                 int playerconf = inputconf.nextInt();
 
                 if (playerconf == 1) {
-
+                    pairGame();
                 }else {
                     askingBet();
                 }
@@ -180,7 +187,7 @@ public class Roulette {
                 int playerconf = inputconf.nextInt();
 
                 if (playerconf == 1) {
-
+                    impairGame();
                 }else {
                     askingBet();
                 }
@@ -191,21 +198,12 @@ public class Roulette {
 
             System.out.println("Vous avez choisi de miser sur les munéro de 0 à 18 \n");
 
-            Scanner input5 = new Scanner(System.in);
-            int playermise5 = input5.nextInt();
+            System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
+            Scanner inputconf = new Scanner(System.in);
+            int playerconf = inputconf.nextInt();
 
-            if (playermise5 == 1) {
-
-                System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
-                Scanner inputconf = new Scanner(System.in);
-                int playerconf = inputconf.nextInt();
-
-                if (playerconf == 1) {
-
-                } else {
-                    askingBet();
-                }
-
+            if (playerconf == 1) {
+                manqueGame();
             } else {
                 askingBet();
             }
@@ -215,32 +213,25 @@ public class Roulette {
 //            PASSE
 
             System.out.println("Vous avez choisi de miser sur les munéro de 19 à 36 \n");
+
+
             System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
+            Scanner inputconf = new Scanner(System.in);
+            int playerconf = inputconf.nextInt();
 
-            Scanner input6 = new Scanner(System.in);
-            int playermise6 = input6.nextInt();
-
-            if (playermise6 == 1) {
-
-                System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
-                Scanner inputconf = new Scanner(System.in);
-                int playerconf = inputconf.nextInt();
-
-                if (playerconf == 1) {
-
-                } else {
-                    askingBet();
-                }
-
+            if (playerconf == 1) {
+                passeGame();
             } else {
                 askingBet();
             }
+
+
 
         } else if (playermise == 6) {
 
             // NUMERO SIMPLE
 
-            System.out.println("Vous avez choisi de miser sur les munéro de 19 à 36 \n");
+            System.out.println("Veuillez choisir un numéro entre 1 et 36 \n");
 
             Scanner input7 = new Scanner(System.in);
             int playermise7 = input7.nextInt();
@@ -250,7 +241,7 @@ public class Roulette {
             } else if (playermise7 > 36) {
                 System.out.println("Veuillez choisir un numéro valide \n");
             } else {
-
+                simpleNumberGame();
             }
 
 
@@ -258,6 +249,30 @@ public class Roulette {
             System.out.println("Veuillez entrer un numéro valide \n");
             askingBet();
         }
+    }
+
+    public static void colorGame() {
+
+    }
+
+    public static void pairGame() {
+
+    }
+
+    public static void impairGame() {
+
+    }
+
+    public static void manqueGame() {
+
+    }
+
+    public static void passeGame() {
+
+    }
+
+    public static void simpleNumberGame() {
+
     }
 
     public static void colorNumbers() {
