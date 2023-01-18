@@ -147,11 +147,13 @@ public class BanditManchot {
                     new java.util.TimerTask() {
                         @Override
                         public void run() {
+                            System.out.print("\033[H\033[2J");
+                            System.out.flush();
                             Main a = new Main();
                             Main.main(null);
                         }
                     },
-                    2000
+                    5000
             );
         }
     }
