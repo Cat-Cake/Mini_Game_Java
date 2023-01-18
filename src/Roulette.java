@@ -124,7 +124,7 @@ public class Roulette {
                 "1 - Couleur \n" +
                 "2 - Pair \n" +
                 "3 - Impair \n" +
-                "4 - Manque (numéro de 0 à 18) \n" +
+                "4 - Manque (numéro de 1 à 18) \n" +
                 "5 - Passe (numéro de 19 à 36) \n" +
                 "6 - Numéro simple \n");
         System.out.println("(Gain * 2 / Gain * 36) \n");
@@ -317,19 +317,118 @@ public class Roulette {
     }
 
     public static void impairGame() {
+        System.out.println("Vous avez choisi Imair ! \n");
+        System.out.println("Les jeux sont fait !! \n");
+        System.out.println("LE RESULTAT EST " + randOne[0] + " \n");
 
+        if (Integer.parseInt(randOne[0]) % 2 != 0) {
+            System.out.println(randOne[0] + " VOUS AVEZ GAGNER \n");
+            miseplayer = miseplayer * 2;
+            System.out.println("Vous gagner le double de votre mise , vous êtes donc à :" + miseplayer + "\n");
+        } else {
+            sold = sold - miseplayer;
+            miseplayer = 0;
+            System.out.println("Vous avez perdu , votre mise est à" + miseplayer + "\n");
+            System.out.println("Re-essayer ? (1 - oui / 2 - non) \n");
+            Scanner input = new Scanner(System.in);
+            int inputRetry = input.nextInt();
+
+            if (inputRetry == 1) {
+                startingRules();
+            } else {
+                System.out.println("Fin du programme \n");
+            }
+        }
     }
 
     public static void manqueGame() {
+        System.out.println("Quel numéro souhaitez-vous choisir ?");
 
+        Scanner input = new Scanner(System.in);
+        int chooseNumber = input.nextInt();
+
+        if (chooseNumber < 1 || chooseNumber > 18) {
+            System.out.println("Veuillez choisir un numéro valide");
+        } else {
+            if (Integer.parseInt(randOne[0]) == chooseNumber) {
+                System.out.println(randOne[0] + " VOUS AVEZ GAGNER \n");
+                miseplayer = miseplayer * 2;
+                System.out.println("Vous gagner le double de votre mise , vous êtes donc à :" + miseplayer + "\n");
+            } else {
+                sold = sold - miseplayer;
+                miseplayer = 0;
+                System.out.println("Vous avez perdu , votre mise est à" + miseplayer + "\n");
+                System.out.println("Re-essayer ? (1 - oui / 2 - non) \n");
+                Scanner input2 = new Scanner(System.in);
+                int inputRetry = input2.nextInt();
+
+                if (inputRetry == 1) {
+                    startingRules();
+                } else {
+                    System.out.println("Fin du programme \n");
+                }
+            }
+        }
     }
 
     public static void passeGame() {
+        System.out.println("Quel numéro souhaitez-vous choisir ?");
 
+        Scanner input = new Scanner(System.in);
+        int chooseNumber = input.nextInt();
+
+        if (chooseNumber < 19 || chooseNumber > 36) {
+            System.out.println("Veuillez choisir un numéro valide");
+        } else {
+            if (Integer.parseInt(randOne[0]) == chooseNumber) {
+                System.out.println(randOne[0] + " VOUS AVEZ GAGNER \n");
+                miseplayer = miseplayer * 2;
+                System.out.println("Vous gagner le double de votre mise , vous êtes donc à :" + miseplayer + "\n");
+            } else {
+                sold = sold - miseplayer;
+                miseplayer = 0;
+                System.out.println("Vous avez perdu , votre mise est à" + miseplayer + "\n");
+                System.out.println("Re-essayer ? (1 - oui / 2 - non) \n");
+                Scanner input2 = new Scanner(System.in);
+                int inputRetry = input2.nextInt();
+
+                if (inputRetry == 1) {
+                    startingRules();
+                } else {
+                    System.out.println("Fin du programme \n");
+                }
+            }
+        }
     }
 
     public static void simpleNumberGame() {
+        System.out.println("Quel numéro souhaitez-vous choisir ?");
 
+        Scanner input = new Scanner(System.in);
+        int chooseNumber = input.nextInt();
+
+        if (chooseNumber < 1 || chooseNumber > 36) {
+            System.out.println("Veuillez choisir un numéro valide");
+        } else {
+            if (Integer.parseInt(randOne[0]) == chooseNumber) {
+                System.out.println(randOne[0] + " VOUS AVEZ GAGNER \n");
+                miseplayer = miseplayer * 36;
+                System.out.println("Vous gagner votre mise x 36 , vous êtes donc à :" + miseplayer + "\n");
+            } else {
+                sold = sold - miseplayer;
+                miseplayer = 0;
+                System.out.println("Vous avez perdu , votre mise est à" + miseplayer + "\n");
+                System.out.println("Re-essayer ? (1 - oui / 2 - non) \n");
+                Scanner input2 = new Scanner(System.in);
+                int inputRetry = input2.nextInt();
+
+                if (inputRetry == 1) {
+                    startingRules();
+                } else {
+                    System.out.println("Fin du programme \n");
+                }
+            }
+        }
     }
 
 }
