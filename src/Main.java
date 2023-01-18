@@ -13,6 +13,7 @@ public class Main {
                 "6 - Somme \n" +
                 "7 - Bandit Manchot \n" +
                 "8 - La roulette \n" +
+                "9 - Le BlackJack \n" +
                 "Autre nombre - Quitter");
         int userChoose = input.nextInt();
 
@@ -47,6 +48,10 @@ public class Main {
         else if (userChoose == 8) {
             Roulette a = new Roulette();
             Roulette.main(args);
+
+        }else if (userChoose == 9) {
+            Blackjack a = new Blackjack();
+            Blackjack.main(args);
 
         }else {
             System.out.println("Vous quittez l'exercice");
