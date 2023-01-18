@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Roulette {
@@ -10,6 +13,19 @@ public class Roulette {
     static int miseplayermanque;
     static int miseplayerpasse;
     static int miseplayersimplenumber;
+
+    static String[][] array = {{"1","rouge"},{"2","noir"},{"3","rouge"},{"4","noir"},{"5","rouge"},
+            {"6","noir"},{"7","rouge"},{"8","noir"},{"9","rouge"},{"10","noir"},
+            {"11","noir"},{"12","rouge"},{"13","noir"},{"14","rouge"},
+            {"15","noir"},{"16","rouge"},{"17","noir"},{"18","rouge"},
+            {"19","rouge"},{"20","noir"},{"21","rouge"},{"22","noir"},
+            {"23","rouge"},{"24","noir"},{"25","rouge"},{"26","noir"},
+            {"27","rouge"},{"28","noir"},{"29","noir"},{"30","rouge"},
+            {"31","noir"},{"32","rouge"},{"33","noir"},{"34","rouge"},
+            {"35","noir"},{"36","rouge"}};
+
+    static Random rand = new Random();
+    static String[] randOne = array[rand.nextInt(array.length)];
 
     public static void main(String[] args) {
 
@@ -120,13 +136,13 @@ public class Roulette {
 //            COULEUR
 
             System.out.println("Vous avez choisi de miser sur la couleur \n");
-            System.out.println("Quel est la couleur choisie (1 - rouge / 2 vert) \n");
+            System.out.println("Quel est la couleur choisie (1 - rouge / 2 noir) \n");
 
             Scanner input2 = new Scanner(System.in);
             int playermise2 = input2.nextInt();
 
             if (playermise2 == 1) {
-                miseplayercolor = "Rouge";
+                miseplayercolor = "rouge";
 
                 System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
                 Scanner inputconf = new Scanner(System.in);
@@ -139,7 +155,7 @@ public class Roulette {
                 }
 
             } else if (playermise2 == 2) {
-                miseplayercolor = "Vert";
+                miseplayercolor = "noir";
 
                 System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
                 Scanner inputconf = new Scanner(System.in);
@@ -252,11 +268,52 @@ public class Roulette {
     }
 
     public static void colorGame() {
+        System.out.println("Vous avez choisi " + miseplayercolor + " ! \n");
+        System.out.println("Les jeux sont fait !! \n");
+        System.out.println("LE RESULTAT EST " + randOne[1] + " \n");
 
+        if (Objects.equals(miseplayercolor, randOne[1])) {
+            System.out.println( randOne[1] + " VOUS AVEZ GAGNER \n");
+            miseplayer = miseplayer * 2;
+            System.out.println("Vous gagner le double de votre mise , vous êtes donc à :" + miseplayer + "\n");
+        } else {
+            System.out.println("Vous avez perdu , votre mise est à" + miseplayer + "\n");
+            System.out.println("Re-essayer ? (1 - oui / 2 - non) \n");
+
+            Scanner input = new Scanner(System.in);
+            int inputRetry = input.nextInt();
+
+            if (inputRetry == 1) {
+                askingBet();
+            } else {
+                System.out.println("Fin du programme \n");
+            }
+        }
     }
 
     public static void pairGame() {
+        System.out.println("Vous avez choisi Pair ! \n");
+        System.out.println("Les jeux sont fait !! \n");
+        System.out.println("LE RESULTAT EST " + randOne[0] + " \n");
 
+        if (Integer.parseInt(randOne[0]) % 2 == 0) {
+            System.out.println(randOne[0] + " VOUS AVEZ GAGNER \n");
+            miseplayer = miseplayer * 2;
+            System.out.println("Vous gagner le double de votre mise , vous êtes donc à :" + miseplayer + "\n");
+        } else {
+            sold = sold - miseplayer;
+            miseplayer = 0;
+            System.out.println("Vous avez perdu , votre mise est à" + miseplayer + "\n");
+            System.out.println("Re-essayer ? (1 - oui / 2 - non) \n");
+            Scanner input = new Scanner(System.in);
+            int inputRetry = input.nextInt();
+
+            if (inputRetry == 1) {
+                startingRules();
+            } else {
+                System.out.println("Fin du programme \n");
+            }
+        }
     }
 
     public static void impairGame() {
@@ -273,18 +330,6 @@ public class Roulette {
 
     public static void simpleNumberGame() {
 
-    }
-
-    public static void colorNumbers() {
-        String[][] array = {{"1","rouge"},{"2","noir"},{"3","rouge"},{"4","noir"},{"5","rouge"},
-                {"6","noir"},{"7","rouge"},{"8","noir"},{"9","rouge"},{"10","noir"},
-                {"11","noir"},{"12","rouge"},{"13","noir"},{"14","rouge"},
-                {"15","noir"},{"16","rouge"},{"17","noir"},{"18","rouge"},
-                {"19","rouge"},{"20","noir"},{"21","rouge"},{"22","noir"},
-                {"23","rouge"},{"24","noir"},{"25","rouge"},{"26","noir"},
-                {"27","rouge"},{"28","noir"},{"29","noir"},{"30","rouge"},
-                {"31","noir"},{"32","rouge"},{"33","noir"},{"34","rouge"},
-                {"35","noir"},{"36","rouge"}};
     }
 
 }
