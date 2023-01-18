@@ -12,6 +12,7 @@ public class Main {
                 "5 - Table de multiplication \n" +
                 "6 - Somme \n" +
                 "7 - Bandit Manchot \n" +
+                "8 - La roulette \n" +
                 "Autre nombre - Quitter");
         int userChoose = input.nextInt();
 
@@ -41,6 +42,11 @@ public class Main {
         } else if (userChoose == 7) {
             BanditManchot a = new BanditManchot();
             BanditManchot.main(args);
+
+        }
+        else if (userChoose == 8) {
+            Roulette a = new Roulette();
+            Roulette.main(args);
 
         }else {
             System.out.println("Vous quittez l'exercice");

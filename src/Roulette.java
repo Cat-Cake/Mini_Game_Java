@@ -5,6 +5,16 @@ import java.util.Scanner;
 
 public class Roulette {
 
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
+
     static int sold;
     static int miseplayer;
     static String miseplayercolor;
@@ -37,18 +47,18 @@ public class Roulette {
                 "Voici les règles : \n" +
                 "- Au départ vous devrez miser une partie de votre argent ! \n" +
                 "- Vous pouvez misez sur : \n" +
-                "- Couleur \n" +
+                ANSI_BLUE +"- Couleur \n" +
                 "- Pair \n" +
                 "- Impair \n" +
                 "- Manque (numéro de 0 à 18) \n" +
-                "- Passe (numéro de 19 à 36) \n" +
-                "- Numéro simple \n");
-        System.out.println("(Gain * 2 / Gain * 36) \n");
+                "- Passe (numéro de 19 à 36) \n" + ANSI_RESET +
+                ANSI_GREEN +"- Numéro simple \n" + ANSI_RESET);
+        System.out.println(ANSI_BLUE +"(Gain * 2" + ANSI_RESET + " / "+ ANSI_GREEN + "Gain * 36) \n" + ANSI_RESET);
         askingMise();
     }
 
     public static void askingMise() {
-        System.out.println("Souhaitez vous essayer ? (1 - oui / 2 - non)");
+        System.out.println("Souhaitez vous essayer ? (" + ANSI_GREEN + "1 - oui" + ANSI_RESET +  "/" + ANSI_RED + "2 - non)" + ANSI_RESET);
         Scanner input = new Scanner(System.in);
         int playingOrNot = input.nextInt();
 
@@ -144,7 +154,7 @@ public class Roulette {
             if (playermise2 == 1) {
                 miseplayercolor = "rouge";
 
-                System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
+                System.out.println("Vous confirmez ? (" + ANSI_GREEN + "1 - oui" + ANSI_RESET +  "/" + ANSI_RED + "2 - non) \n"+ ANSI_RESET);
                 Scanner inputconf = new Scanner(System.in);
                 int playerconf = inputconf.nextInt();
 
@@ -157,7 +167,7 @@ public class Roulette {
             } else if (playermise2 == 2) {
                 miseplayercolor = "noir";
 
-                System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
+                System.out.println("Vous confirmez ? (" + ANSI_GREEN + "1 - oui" + ANSI_RESET +  "/" + ANSI_RED + "2 - non) \n"+ ANSI_RESET);
                 Scanner inputconf = new Scanner(System.in);
                 int playerconf = inputconf.nextInt();
 
@@ -180,7 +190,7 @@ public class Roulette {
 
 
 
-                System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
+                System.out.println("Vous confirmez ? (" + ANSI_GREEN + "1 - oui" + ANSI_RESET +  "/" + ANSI_RED + "2 - non) \n"+ ANSI_RESET);
                 Scanner inputconf = new Scanner(System.in);
                 int playerconf = inputconf.nextInt();
 
@@ -198,7 +208,7 @@ public class Roulette {
             System.out.println("Vous avez choisi de miser sur Impair \n");
 
 
-                System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
+                System.out.println("Vous confirmez ? (" + ANSI_GREEN + "1 - oui" + ANSI_RESET +  "/" + ANSI_RED + "2 - non) \n"+ ANSI_RESET);
                 Scanner inputconf = new Scanner(System.in);
                 int playerconf = inputconf.nextInt();
 
@@ -214,7 +224,7 @@ public class Roulette {
 
             System.out.println("Vous avez choisi de miser sur les munéro de 0 à 18 \n");
 
-            System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
+            System.out.println("Vous confirmer ? (" + ANSI_GREEN + "1 - oui" + ANSI_RESET +  "/" + ANSI_RED + "2 - non) \n"+ ANSI_RESET);
             Scanner inputconf = new Scanner(System.in);
             int playerconf = inputconf.nextInt();
 
@@ -231,7 +241,7 @@ public class Roulette {
             System.out.println("Vous avez choisi de miser sur les munéro de 19 à 36 \n");
 
 
-            System.out.println("Vous confirmer ? (1 - oui / 2 non) \n");
+            System.out.println("Vous confirmez ? (" + ANSI_GREEN + "1 - oui" + ANSI_RESET +  "/" + ANSI_RED + "2 - non) \n"+ ANSI_RESET);
             Scanner inputconf = new Scanner(System.in);
             int playerconf = inputconf.nextInt();
 
@@ -247,23 +257,36 @@ public class Roulette {
 
             // NUMERO SIMPLE
 
-            System.out.println("Veuillez choisir un numéro entre 1 et 36 \n");
+            System.out.println("Vous avez choisi de miser sur les munéro de 1 à 36 \n");
 
-            Scanner input7 = new Scanner(System.in);
-            int playermise7 = input7.nextInt();
 
-            if (playermise7 < 1) {
-                System.out.println("Veuillez choisir un numéro valide \n");
-            } else if (playermise7 > 36) {
-                System.out.println("Veuillez choisir un numéro valide \n");
-            } else {
+            System.out.println("Vous confirmez ? (" + ANSI_GREEN + "1 - oui" + ANSI_RESET +  "/" + ANSI_RED + "2 - non) \n"+ ANSI_RESET);
+            Scanner inputconf = new Scanner(System.in);
+            int playerconf = inputconf.nextInt();
+
+            if (playerconf == 1) {
                 simpleNumberGame();
+            } else {
+                askingBet();
             }
 
 
         } else {
             System.out.println("Veuillez entrer un numéro valide \n");
             askingBet();
+        }
+    }
+
+    public static void retry() {
+        System.out.println("Faire une nouvelle parti ? (1 - oui / 2 - non) \n");
+
+        Scanner input = new Scanner(System.in);
+        int inputRetry = input.nextInt();
+
+        if (inputRetry == 1) {
+            askingBet();
+        } else {
+            System.out.println("Fin du programme \n");
         }
     }
 
@@ -276,18 +299,10 @@ public class Roulette {
             System.out.println( randOne[1] + " VOUS AVEZ GAGNER \n");
             miseplayer = miseplayer * 2;
             System.out.println("Vous gagner le double de votre mise , vous êtes donc à :" + miseplayer + "\n");
+            retry();
         } else {
             System.out.println("Vous avez perdu , votre mise est à" + miseplayer + "\n");
-            System.out.println("Re-essayer ? (1 - oui / 2 - non) \n");
-
-            Scanner input = new Scanner(System.in);
-            int inputRetry = input.nextInt();
-
-            if (inputRetry == 1) {
-                askingBet();
-            } else {
-                System.out.println("Fin du programme \n");
-            }
+            retry();
         }
     }
 
@@ -325,19 +340,12 @@ public class Roulette {
             System.out.println(randOne[0] + " VOUS AVEZ GAGNER \n");
             miseplayer = miseplayer * 2;
             System.out.println("Vous gagner le double de votre mise , vous êtes donc à :" + miseplayer + "\n");
+            retry();
         } else {
             sold = sold - miseplayer;
             miseplayer = 0;
             System.out.println("Vous avez perdu , votre mise est à" + miseplayer + "\n");
-            System.out.println("Re-essayer ? (1 - oui / 2 - non) \n");
-            Scanner input = new Scanner(System.in);
-            int inputRetry = input.nextInt();
-
-            if (inputRetry == 1) {
-                startingRules();
-            } else {
-                System.out.println("Fin du programme \n");
-            }
+            retry();
         }
     }
 
@@ -354,19 +362,12 @@ public class Roulette {
                 System.out.println(randOne[0] + " VOUS AVEZ GAGNER \n");
                 miseplayer = miseplayer * 2;
                 System.out.println("Vous gagner le double de votre mise , vous êtes donc à :" + miseplayer + "\n");
+                retry();
             } else {
                 sold = sold - miseplayer;
                 miseplayer = 0;
                 System.out.println("Vous avez perdu , votre mise est à" + miseplayer + "\n");
-                System.out.println("Re-essayer ? (1 - oui / 2 - non) \n");
-                Scanner input2 = new Scanner(System.in);
-                int inputRetry = input2.nextInt();
-
-                if (inputRetry == 1) {
-                    startingRules();
-                } else {
-                    System.out.println("Fin du programme \n");
-                }
+                retry();
             }
         }
     }
@@ -384,19 +385,12 @@ public class Roulette {
                 System.out.println(randOne[0] + " VOUS AVEZ GAGNER \n");
                 miseplayer = miseplayer * 2;
                 System.out.println("Vous gagner le double de votre mise , vous êtes donc à :" + miseplayer + "\n");
+                retry();
             } else {
                 sold = sold - miseplayer;
                 miseplayer = 0;
                 System.out.println("Vous avez perdu , votre mise est à" + miseplayer + "\n");
-                System.out.println("Re-essayer ? (1 - oui / 2 - non) \n");
-                Scanner input2 = new Scanner(System.in);
-                int inputRetry = input2.nextInt();
-
-                if (inputRetry == 1) {
-                    startingRules();
-                } else {
-                    System.out.println("Fin du programme \n");
-                }
+                retry();
             }
         }
     }
@@ -414,19 +408,12 @@ public class Roulette {
                 System.out.println(randOne[0] + " VOUS AVEZ GAGNER \n");
                 miseplayer = miseplayer * 36;
                 System.out.println("Vous gagner votre mise x 36 , vous êtes donc à :" + miseplayer + "\n");
+                retry();
             } else {
                 sold = sold - miseplayer;
                 miseplayer = 0;
-                System.out.println("Vous avez perdu , votre mise est à" + miseplayer + "\n");
-                System.out.println("Re-essayer ? (1 - oui / 2 - non) \n");
-                Scanner input2 = new Scanner(System.in);
-                int inputRetry = input2.nextInt();
-
-                if (inputRetry == 1) {
-                    startingRules();
-                } else {
-                    System.out.println("Fin du programme \n");
-                }
+                System.out.println("Vous avez perdu le numéro étais " + randOne[0] + ", votre mise est à" + miseplayer + "\n");
+                retry();
             }
         }
     }
