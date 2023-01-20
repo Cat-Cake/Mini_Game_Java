@@ -1,9 +1,18 @@
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Blackjack {
 
     static int sold;
     static int miseplayer;
+
+    static String handplayer;
+
+    static String handBot;
+
+    static int scoreplayer;
+    static int scorebot;
 
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
@@ -15,7 +24,7 @@ public class Blackjack {
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
 
-    static String[][] array = {{"2","2♠"}, {"3","3♠"}, {"4","4♠"}, {"5","5♠"}, {"6","6♠"}, {"7","7♠"}, {"8","8♠"}, {"9","9♠"}, {"10","10♠"}, {"1", "11" ,"as♠"}, {"vallet♠"}, {"dame♠"}, {"roi♠"},
+    static String[][] array = {{"2","2♠"}, {"3","3♠"}, {"4","4♠"}, {"5","5♠"}, {"6","6♠"}, {"7","7♠"}, {"8","8♠"}, {"9","9♠"}, {"10","10♠"}, {"1", "11" ,"as♠"}, {"10","vallet♠"}, {"10","dame♠"}, {"10","roi♠"},
             {"2","2♣"}, {"3","3♣"}, {"4","4♣"}, {"5","5♣"}, {"6","6♣"}, {"7","7♣"}, {"8","8♣"}, {"9","9♣"}, {"10","10♣"}, {"1", "11" ,"as♣"}, {"10","vallet♣"}, {"10","dame♣"}, {"10","roi♣"},
             {"2","2♦"}, {"3","3♦"}, {"4","4♦"}, {"5","5♦"}, {"6","6♦"}, {"7","7♦"}, {"8","8♦"}, {"9","9♦"}, {"10","10♦"}, {"1", "11" ,"as♦"}, {"10","vallet♦"}, {"10","dame♦"}, {"10","roi♦"},
             {"2","2♥"}, {"3","3♥"}, {"4","4♥"}, {"5","5♥"}, {"6","6♥"}, {"7","7♥"}, {"8","8♥"}, {"9","9♥"}, {"10","10♥"}, {"1", "11" ,"as♥"}, {"10","vallet♥"}, {"10","dame♥"}, {"10","roi♥"}};
@@ -25,6 +34,7 @@ public class Blackjack {
     }
 
     public static void welcome() {
+        Collections.shuffle(Arrays.asList(array));
         System.out.println("Bienvenue sur le jeux du BlackJack !");
         System.out.println("Voici les règles du jeux :");
         System.out.println("- Au départ vous devrez miser un partie de votre argent !\n" +
@@ -106,8 +116,111 @@ public class Blackjack {
         }
     }
 
-    public static void Game() {
+    public static void Gamdfdfdsfe() {
+        Collections.shuffle(Arrays.asList(array));
+        System.out.print(Arrays.deepToString(array));
 
     }
+
+    public static void presentation() {
+        System.out.println("C'est parti je précise que le jeux de carte est mélangé.");
+        System.out.println("le croupier distribue...");
+        System.out.println("le croupier recoit :");
+        Game();
+    }
+
+    public static void asktopi() {
+        if (scorebot < 21 || scoreplayer < 21) {
+            System.out.println("1 - Piocher" +
+                    "2 - Rester" +
+                    "3 - Abandonner(récupérer la moitier de la mise)");
+
+            Scanner input = new Scanner(System.in);
+            int playerinput = input.nextInt();
+
+            if (playerinput == 1) {
+
+                for( String j : new String[]{array[3][0]}) {
+                    scoreplayer = Integer.parseInt(String.valueOf(scoreplayer + Integer.parseInt(j)));
+                    scorebot = Integer.parseInt(String.valueOf(scorebot + Integer.parseInt(j)));
+                }
+//                handBot = handBot + Arrays.toString(new String[]{array[5][1]});
+//                handplayer = handplayer + Arrays.toString(new String[]{array[6][1]});
+                Game();
+
+            } else if (playerinput == 2) {
+
+            } else if (playerinput == 3) {
+
+            } else {
+                System.out.println("Fin de programme");
+            }
+
+        } else if (scoreplayer > 21 || scorebot > 21) {
+            System.out.println("TOUSSE");
+
+        } else if (scorebot == 21) {
+            System.out.println("Le croupier a gagner !");
+            System.out.println("Voulez-vous re-jouer ? (" + ANSI_GREEN + "1 - oui" + ANSI_RESET +  "/" + ANSI_RED + "2 - non)" + ANSI_RESET);
+            Scanner input = new Scanner(System.in);
+            int playerinput = input.nextInt();
+
+            if (playerinput == 1) {
+                mise();
+
+            } else if (playerinput == 2) {
+                System.out.println("Fin de programme");
+            } else {
+                System.out.println("Veuillez entrer une réponse valable");
+            }
+
+        } else if (scoreplayer == 21) {
+            System.out.println("Vous avez gagner !");
+            System.out.println("Voulez-vous re-jouer ? (" + ANSI_GREEN + "1 - oui" + ANSI_RESET +  "/" + ANSI_RED + "2 - non)" + ANSI_RESET);
+            Scanner input = new Scanner(System.in);
+            int playerinput = input.nextInt();
+
+            if (playerinput == 1) {
+                mise();
+
+            } else if (playerinput == 2) {
+                System.out.println("Fin de programme");
+            } else {
+                System.out.println("Veuillez entrer une réponse valable");
+            }
+
+        }
+    }
+
+    public static void Game() {
+//        System.out.print(Arrays.deepToString(array[0]));
+//        System.out.print(Arrays.deepToString(array[1]));
+//        handplayer = Arrays.toString(new String[]{array[0][1]});
+//        System.out.println(handplayer);
+
+        for (int i = 0; i < 2; i++) {
+            handBot = handBot + Arrays.toString(new String[]{array[i][1]});
+//            scorebot = scorebot + Arrays.toString(new String[]{array[i][0]});
+            for( String j : new String[]{array[i][0]}) {
+                scorebot = Integer.parseInt(String.valueOf(scorebot + Integer.parseInt(j)));
+            }
+            System.out.print(ANSI_BLUE + handBot + ANSI_RESET);
+        }
+        System.out.println("\n Score croupier :" + scorebot);
+        System.out.println("Vous recevez :");
+        for (int i = 2; i < 4; i++) {
+            handplayer = handplayer + Arrays.toString(new String[]{array[i][1]});
+            for( String j : new String[]{array[i][0]}) {
+                scoreplayer = Integer.parseInt(String.valueOf(scoreplayer + Integer.parseInt(j)));
+            }
+            System.out.print(ANSI_RED + handplayer + ANSI_RESET);
+        }
+        System.out.println("\n Votre score :" + scoreplayer);
+        asktopi();
+
+
+    }
+
+
 
 }
