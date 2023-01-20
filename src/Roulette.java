@@ -131,13 +131,13 @@ public class Roulette {
 
     public  static void askingBet() {
         System.out.println("Sur quoi voulez vous pariez \n" +
-                "1 - Couleur \n" +
+                ANSI_BLUE + "1 - Couleur \n" +
                 "2 - Pair \n" +
                 "3 - Impair \n" +
                 "4 - Manque (numéro de 1 à 18) \n" +
-                "5 - Passe (numéro de 19 à 36) \n" +
-                "6 - Numéro simple \n");
-        System.out.println("(Gain * 2 / Gain * 36) \n");
+                "5 - Passe (numéro de 19 à 36) \n" + ANSI_RESET +
+                ANSI_GREEN + "6 - Numéro simple \n" + ANSI_RESET);
+        System.out.println(ANSI_BLUE +"(Gain * 2" + ANSI_RESET + " / "+ ANSI_GREEN + "Gain * 36) \n" + ANSI_RESET);
         Scanner input = new Scanner(System.in);
         int playermise = input.nextInt();
 
