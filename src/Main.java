@@ -2,6 +2,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+//        Access ot the other exercices
+
         System.out.println("\n .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:. \n");
         Scanner input = new Scanner(System.in);
         System.out.println("Entrer un exercice \n" +
@@ -13,9 +15,8 @@ public class Main {
                 "6 - Somme \n" +
                 "7 - Bandit Manchot \n" +
                 "8 - La roulette \n" +
-                "9 - Le BlackJack \n" +
-                "10 - Pierre Feuille Ciseaux \n" +
-                "Autre nombre - Quitter");
+                "9 - Pierre Feuille Ciseaux \n" +
+                "Autres nombres - Quitter");
         int userChoose = input.nextInt();
 
         if (userChoose == 1) {
@@ -51,10 +52,6 @@ public class Main {
             Roulette.main(args);
 
         }else if (userChoose == 9) {
-            Blackjack a = new Blackjack();
-            Blackjack.main(args);
-
-        }else if (userChoose == 10) {
             PierreFeuilleCisseaux a = new PierreFeuilleCisseaux();
             PierreFeuilleCisseaux.main(args);
 

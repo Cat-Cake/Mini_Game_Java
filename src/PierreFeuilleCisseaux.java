@@ -55,7 +55,7 @@ class PierreFeuilleCisseaux {
    }
    public static void askRetry() {
        Scanner input = new Scanner(System.in);
-       System.out.println("Re jouer ? \n" +
+       System.out.println("Rejouer ? \n" +
                "1 - Oui \n" +
                "2 - Non \n");
        int player = Integer.parseInt(input.nextLine());
